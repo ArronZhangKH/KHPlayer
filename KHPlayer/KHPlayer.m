@@ -79,7 +79,7 @@
 
 
 /*
- 使用KVO监测播放状态和进度条的值
+ 使用KVO监听播放状态
  */
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
     if ([keyPath isEqualToString:@"status"])
