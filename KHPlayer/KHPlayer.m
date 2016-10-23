@@ -7,7 +7,6 @@
 //
 
 #import "KHPlayer.h"
-#import "Masonry.h"
 #import <AVFoundation/AVFoundation.h>
 
 //按钮的宽和高
@@ -16,6 +15,17 @@
 #define kLabelFont 15
 //loading View的宽和高
 #define kLoadingBGView_Size 50
+//按钮间的间距
+#define kButtonSpace 50
+//时间Label的外边距
+#define kLabelSpace 10
+//时间Label的宽度
+#define kLabelWidth 50
+//时间Lable的高度
+#define kLabelHeight 20
+//菊花的尺寸
+#define kActivityView_Size 30
+
 
 @interface KHPlayer ()
 /** 快退按钮 */
@@ -59,6 +69,7 @@
         [self.currentItem removeObserver:self forKeyPath:@"playbackBufferEmpty"];
         [self.currentItem removeObserver:self forKeyPath:@"playbackLikelyToKeepUp"];
         self.currentItem = nil;
+        
     }
     if (self.player) {
         self.player = nil;
@@ -74,7 +85,7 @@
     [self.currentItem addObserver:self forKeyPath:@"playbackLikelyToKeepUp" options:NSKeyValueObservingOptionNew context:nil];
     
     self.player = [[AVPlayer alloc] initWithPlayerItem:self.currentItem];
-
+    [self showLoadingView];
 }
 
 
@@ -333,68 +344,56 @@
     
     //设置UI控件
     UIButton *btn1 = [UIButton buttonWithType:UIButtonTypeCustom];
+    CGFloat x1 = CGRectGetWidth(self.frame) / 2 - kButtonSize / 2;
+    CGFloat y1 = CGRectGetHeight(self.frame) /2 - kButtonSize / 2;
+    btn1.frame = CGRectMake(x1, y1, kButtonSize, kButtonSize);
     [self addSubview:btn1];
     self.PlayOrPuaseBtn = btn1;
     [self.PlayOrPuaseBtn setImage:[UIImage imageNamed:@"yinpinPlay_19x23_"] forState:UIControlStateNormal];
     [self.PlayOrPuaseBtn setImage:[UIImage imageNamed:@"yinpinPause_14x22_"] forState:UIControlStateSelected];
     [self.PlayOrPuaseBtn addTarget:self action:@selector(playOrPauseBtnDidClick) forControlEvents:UIControlEventTouchUpInside];
     
-    [self.PlayOrPuaseBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.mas_equalTo(self);
-        make.width.and.height.mas_equalTo(kButtonSize);
-    }];
     
     UIButton *btn2 = [UIButton buttonWithType:UIButtonTypeCustom];
+    CGFloat x2 = x1 - kButtonSpace - kButtonSize;
+    CGFloat y2 = y1;
+    btn2.frame = CGRectMake(x2, y2, kButtonSize, kButtonSize);
     [self addSubview:btn2];
     self.backBtn = btn2;
     [self.backBtn setImage:[UIImage imageNamed:@"yinpinRW_28x18_"] forState:UIControlStateNormal];
     [self.backBtn addTarget:self action:@selector(backBtnDidClick) forControlEvents:UIControlEventTouchUpInside];
     
-    [self.backBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(self.PlayOrPuaseBtn);
-        make.size.mas_equalTo(self.PlayOrPuaseBtn);
-        make.right.mas_equalTo(self.PlayOrPuaseBtn.mas_left).offset(-50);
-    }];
-    
     UIButton *btn3 = [UIButton buttonWithType:UIButtonTypeCustom];
+    CGFloat x3 = x1 + kButtonSpace + kButtonSize;
+    CGFloat y3 = y1;
+    btn3.frame = CGRectMake(x3, y3, kButtonSize, kButtonSize);
     [self addSubview:btn3];
     self.forwardBtn = btn3;
     [self.forwardBtn setImage:[UIImage imageNamed:@"yinpinFF_27x18_"] forState:UIControlStateNormal];
     [self.forwardBtn addTarget:self action:@selector(forwardBtnDidClick) forControlEvents:UIControlEventTouchUpInside];
     
-    [self.forwardBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.mas_equalTo(self.PlayOrPuaseBtn);
-        make.size.mas_equalTo(self.PlayOrPuaseBtn);
-        make.left.mas_equalTo(self.PlayOrPuaseBtn.mas_right).offset(50);
-    }];
-    
     UILabel *label1 = [[UILabel alloc] init];
+    CGFloat x4 = kLabelSpace;
+    CGFloat y4 = CGRectGetHeight(self.frame) / 2 - kLabelHeight / 2;
+    label1.frame = CGRectMake(x4, y4, kLabelWidth, kLabelHeight);
     [self addSubview:label1];
     label1.textAlignment = NSTextAlignmentCenter;
     label1.font = [UIFont systemFontOfSize:kLabelFont];
     label1.text = @"00:00";
     self.leftTimeLabel = label1;
-    [label1 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(50);
-        make.height.mas_equalTo(20);
-        make.left.mas_equalTo(self);
-        make.centerY.mas_equalTo(self);
-    }];
     
     UILabel *label2 = [[UILabel alloc] init];
+    CGFloat x5 = CGRectGetWidth(self.frame) - kLabelWidth - kLabelSpace;
+    CGFloat y5 = y4;
+    label2.frame = CGRectMake(x5, y5, kLabelWidth, kLabelHeight);
     [self addSubview:label2];
     label2.textAlignment = NSTextAlignmentCenter;
     label2.font = [UIFont systemFontOfSize:kLabelFont];
     label2.text = @"00:00";
     self.rightTimeLabel = label2;
-    [label2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(50);
-        make.height.mas_equalTo(20);
-        make.right.mas_equalTo(self);
-        make.centerY.mas_equalTo(self);
-    }];
     
     UISlider *slider = [[UISlider alloc] init];
+    slider.frame = CGRectMake(0, 0, CGRectGetWidth(self.frame), 10);
     [slider setMaximumTrackTintColor:[UIColor clearColor]];
     [slider setMinimumTrackTintColor:[UIColor clearColor]];
     slider.maximumValue = 1.f;
@@ -403,35 +402,27 @@
     [slider addTarget:self action:@selector(handleDragingOfSlider:) forControlEvents:UIControlEventValueChanged];
     UITapGestureRecognizer *tapGesturer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(updateSlider:)];
     [slider addGestureRecognizer:tapGesturer];
-    
     [self addSubview:slider];
     self.progressSlider = slider;
-    [slider mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.width.mas_equalTo(self);
-        make.height.mas_equalTo(10);
-        make.centerY.mas_equalTo(self.mas_top).offset(5);
-        make.left.mas_equalTo(self);
-    }];
     
     UIView *bgView = [[UIView alloc] init];
-    bgView.backgroundColor = [UIColor lightGrayColor];
+    CGFloat x6 = CGRectGetWidth(self.frame) / 2 - kLoadingBGView_Size / 2;
+    CGFloat y6 = -100;
+    bgView.frame = CGRectMake(x6, y6, kLoadingBGView_Size, kLoadingBGView_Size);
+    bgView.backgroundColor = [UIColor blackColor];
+    bgView.alpha = 0.7f;
     [self addSubview:bgView];
     bgView.layer.cornerRadius = 5;
     bgView.clipsToBounds = YES;
     self.loadBgView = bgView;
-    [bgView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.mas_equalTo(self);
-        make.bottom.mas_equalTo(self.mas_top).offset(-50);
-        make.width.and.height.mas_equalTo(kLoadingBGView_Size);
-    }];
     
     UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    CGFloat x7 = CGRectGetWidth(bgView.frame) / 2 - kActivityView_Size / 2;
+    CGFloat y7 = CGRectGetHeight(bgView.frame) / 2 - kActivityView_Size / 2;
+    activityView.frame = CGRectMake(x7, y7, kActivityView_Size, kActivityView_Size);
     [bgView addSubview:activityView];
     self.activityView = activityView;
     [activityView startAnimating];
-    [activityView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.center.mas_equalTo(bgView);
-    }];
 
     //添加KVO事件
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resetPlayer) name:AVPlayerItemDidPlayToEndTimeNotification object:_currentItem];

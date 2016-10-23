@@ -2,13 +2,13 @@
 ###特点
 - 体量小
 - 简单易用
-- 支持单首歌曲的播放,快进,快退和进度条的拖动以及点击
+- 支持单首歌曲的播放,快进,快退
+- 支持进度条的拖动以及点击
 
 
 ##使用方法
 1. 下载并复制**KHPlayer**文件夹下的源代码到你的工程目录
 	- 注意:如果想使用原资源图片, 一定要把Assets里的图片一起复制过去
-	- 另外, 我用了masonry来做自动布局, 所以记得把masonry一起拉进你的项目。
 2. 初始化**KHPlayer**, 赋值Frame, 并添加到当前视图中
 
 		 KHPlayer *player = [[KHPlayer alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame) - 70, CGRectGetWidth(self.view.frame),70)];
