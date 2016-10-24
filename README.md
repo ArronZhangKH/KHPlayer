@@ -27,7 +27,7 @@
 
 
 ###完成以上操作后得到的效果如下:  
-![](http://upload-images.jianshu.io/upload_images/3007158-2b9f037ceebfb11e.gif?imageMogr2/auto-orient/strip
+![](http://upload-images.jianshu.io/upload_images/3007158-2b9f037ceebfb11e.gif?imageMogr2/auto-orient/strip)
 
 ###后续工作
 - 添加播放本地音频的接口
