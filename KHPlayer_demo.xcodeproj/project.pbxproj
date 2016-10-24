@@ -17,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		48F17CFD1DBD1E7C00E283E6 /* KHPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KHPlayer.h; sourceTree = "<group>"; };
 		BCB56DD81DBC8A5000CD592F /* KHPlayer_demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KHPlayer_demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCB56DDC1DBC8A5000CD592F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		BCB56DDE1DBC8A5000CD592F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -27,7 +28,6 @@
 		BCB56DE71DBC8A5000CD592F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BCB56DEA1DBC8A5000CD592F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BCB56DEC1DBC8A5000CD592F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BCB56DF31DBC8A6400CD592F /* KHPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KHPlayer.h; sourceTree = "<group>"; };
 		BCB56DF41DBC8A6400CD592F /* KHPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KHPlayer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,7 +86,7 @@
 		BCB56DF21DBC8A6400CD592F /* KHPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				BCB56DF31DBC8A6400CD592F /* KHPlayer.h */,
+				48F17CFD1DBD1E7C00E283E6 /* KHPlayer.h */,
 				BCB56DF41DBC8A6400CD592F /* KHPlayer.m */,
 			);
 			path = KHPlayer;
