@@ -27,7 +27,7 @@
 
 
 ###完成以上操作后得到的效果如下:  
-![](http://a3.qpic.cn/psb?/V10VS2G12cCf7H/GeDP*peQjii2JkgMHMxMFn*.unwHdiwFlSIPJ7GTw9k!/b/dMgAAAAAAAAA&bo=bgGUAgAAAAACKPU!&rf=viewer_4)
+![](http://a3.qpic.cn/psb?/V10VS2G12cCf7H/GeDP*peQjii2JkgMHMxMFn*.unwHdiwFlSIPJ7GTw9k!/c/dMgAAAAAAAAA&bo=bgGUAgAAAAACB9o!&rf=viewer_4)
 
 ###后续工作
 - 添加播放本地音频的接口
