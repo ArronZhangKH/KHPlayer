@@ -27,7 +27,7 @@
 
 
 ###完成以上操作后得到的效果如下:  
-![](http://a3.qpic.cn/psb?/V10VS2G12cCf7H/zDQgPgk6VHWpXoxzgjkNwyb5yDw9oZ4Zwj6vFnoB7fM!/b/dMgAAAAAAAAA&bo=bgGUAgAAAAACFMk!&rf=viewer_4)
+![](http://upload-images.jianshu.io/upload_images/3007158-2b9f037ceebfb11e.gif?imageMogr2/auto-orient/strip
 
 ###后续工作
 - 添加播放本地音频的接口
