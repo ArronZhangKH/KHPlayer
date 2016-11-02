@@ -1,11 +1,10 @@
 #KHPlayer
 - a simply player for online audio
 
-###[English Version](https://github.com/ArronZhangKH/KHPlayer#khplayer)
+###[English Version](https://github.com/ArronZhangKH/KHPlayer/blob/master/README-CD.md#khplayer)
 
 ###features
 - small volume
-- simply to use
 - comprehensive functions, including playing back, pause, fast-forward, fast-backward 
 - capable of changing the progress by dragging or clicking the progress slider
 
