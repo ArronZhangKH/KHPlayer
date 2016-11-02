@@ -1,6 +1,8 @@
 #KHPlayer
 - a simply player for online audio
 
+###[English Version](https://github.com/ArronZhangKH/KHPlayer#khplayer)
+
 ###features
 - small volume
 - simply to use
