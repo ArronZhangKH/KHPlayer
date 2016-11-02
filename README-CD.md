@@ -1,7 +1,8 @@
 #KHPlayer
+- 一个简单的在线音乐播放器
+###[English Version](https://github.com/ArronZhangKH/KHPlayer#khplayer)
 ###特点
 - 体量小
-- 简单易用
 - 支持单首歌曲的播放,快进,快退
 - 支持进度条的拖动以及点击
 
