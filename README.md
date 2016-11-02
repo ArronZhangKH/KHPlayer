@@ -1,34 +1,37 @@
 #KHPlayer
-###特点
-- 体量小
-- 简单易用
-- 支持单首歌曲的播放,快进,快退
-- 支持进度条的拖动以及点击
+- a simply player for online audio
+
+###features
+- small volume
+- simply to use
+- comprehensive functions, including playing back, pause, fast-forward, fast-backward 
+- capable of changing the progress by dragging or clicking the progress slider
 
 
-##使用方法
-1. 下载并复制**KHPlayer**文件夹下的源代码到你的工程目录
-	- 注意:如果想使用原资源图片, 一定要把Assets里的图片一起复制过去
-2. 初始化**KHPlayer**, 赋值Frame, 并添加到当前视图中
+##Usage
+1. Download and copy **KHPlayer** folder to your project directory
+	- Note: if you want to use the original resource pictures, be sure to copy the pictures in the Assets to your project
+	
+2. Initialize **KHPlayer**, assign value for its frame, and add it to the current view
 
 		 KHPlayer *player = [[KHPlayer alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame) - 70, CGRectGetWidth(self.view.frame),70)];
  		[self.view addSubview:player];
 
-3. 设置相关的UI属性
+3. Set up UI properties
 
 		 [player setSliderThumbImage:[UIImage imageNamed:@"yinpinThumb"]];
 		 [player enableMasksToBoundsOfSlider];
 		 [player setBgColor:[UIColor whiteColor]];
 
-4. 设置要播放的在线音频URL的String值, 并调用`play`方法进行播放
+4. Set URLString for the online audio you wanna play, and call the `play` method
 
 		[player setURLString: kInterface1]; 
 		[player play];
 
 
-###完成以上操作后得到的效果如下:  
+###Now you got a simply audio player like this:
 ![](http://upload-images.jianshu.io/upload_images/3007158-2b9f037ceebfb11e.gif?imageMogr2/auto-orient/strip)
 
-###后续工作
-- 添加播放本地音频的接口
-- 添加连续播放多首歌的功能
+###TO DO:
+- add interfaces for local auidos
+- Add a continuous playing function
